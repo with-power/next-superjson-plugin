@@ -1,8 +1,5 @@
-"use client";
-
-import { SuperJSONProps, withSuperJSONPage } from "./tools";
+import { SuperJSONProps } from "./tools";
 import type { ComponentType, JSX, ReactNode } from "react";
-
 export default function SuperJSONComponent<P extends JSX.IntrinsicAttributes>({
   component,
   props,
@@ -11,7 +8,4 @@ export default function SuperJSONComponent<P extends JSX.IntrinsicAttributes>({
   component: ComponentType<P>;
   props: SuperJSONProps<P>;
   children?: ReactNode;
-}) {
-  const WithSuperJSON = withSuperJSONPage(component);
-  return <WithSuperJSON {...props}>{children}</WithSuperJSON>;
-}
+}): import("react/jsx-runtime").JSX.Element;

@@ -1,16 +1,16 @@
 {
   "name": "next-superjson-plugin",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "description": "Automatically transform your Next.js Pages to use SuperJSON with SWC",
-  "author": "JH.Lee <contact@jins.dev>",
-  "homepage": "https://github.com/blitz-js/next-superjson-plugin#readme",
+  "author": "Ed Lui <ed@withpower.com>",
+  "homepage": "https://github.com/with-power/next-superjson-plugin#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/blitz-js/next-superjson-plugin.git"
+    "url": "https://github.com/with-power/next-superjson-plugin.git"
   },
   "bugs": {
-    "url": "https://github.com/blitz-js/next-superjson-plugin/issues",
-    "email": "contact@jins.dev"
+    "url": "https://github.com/with-power/next-superjson-plugin/issues",
+    "email": "ed@withpower.com"
   },
   "license": "MIT",
   "keywords": [
@@ -33,6 +33,7 @@
   ],
   "peerDependencies": {
     "next": "^13.0 || ^14.0",
+    "react": "^18 || ^19",
     "superjson": "^1 || ^2"
   },
   "dependencies": {
@@ -40,6 +41,7 @@
   },
   "devDependencies": {
     "@types/hoist-non-react-statics": "^3.3.1",
+    "@types/react": "^18 || ^19",
     "husky": "^8.0.2",
     "lint-staged": "^13.0.3",
     "next": "^13",

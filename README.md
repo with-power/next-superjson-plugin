@@ -32,7 +32,7 @@ export default function ServerComponent() {
 }
 ```
 
-- Provides `data-superjson` attribute for [Server Component > Client Component Serialization](https://beta.nextjs.org/docs/rendering/server-and-client-components#passing-props-from-server-to-client-components-serialization).
+- Provides `data-superjson` attribute for [Server Component > Client Component Serialization](https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns#passing-props-from-server-to-client-components-serialization).
 
 ## Usage
 
@@ -81,14 +81,52 @@ sequenceDiagram
 
 ```
 
+## Notes on this Fork
+
+This fork is based on the original plugin by [orionmiz](https://github.com/orionmiz)
+
+It is updated to support Next.js 14.2, where there was previous SWC version incompatibilities with NextJS upstream.
+
+Solves this category of issue occurring at build time for static /pages:
+
+```
+Error: failed to process failed to invoke plugin: failed to invoke plugin on (...)
+
+Caused by:
+    0: failed to invoke `/node_modules/next-superjson-plugin/dist/next_superjson.wasm` as js transform plugin at /node_modules/next-superjson-plugin/dist/next_superjson.wasm
+    1: failed to run Wasm plugin transform. Please ensure the version of `swc_core` used by the plugin is compatible with the host runtime. See https://swc.rs/docs/plugin/selecting-swc-corefor compatibility information. If you are an author of the plugin, please update `swc_core` to the compatible version.
+    2: RuntimeError: out of bounds memory acces
+```
+
 ## Bug Report
 
 ⚠️ Keep in mind: SWC Plugin is still an experimental feature for Next.js
 
 Plugin always ensures compatibility with [Next.js Canary version](https://nextjs.org/docs/messages/opening-an-issue) only.
 
-[Leave an Issue](https://github.com/orionmiz/next-superjson-plugin/issues)
+[Leave an Issue](https://github.com/with-power/next-superjson-plugin/issues)
 
 ## Special Thanks
 
 - [kdy1](https://github.com/kdy1) (Main creator of swc project)
+- [orionmiz](https://github.com/orionmiz) (Original author of the plugin)
+
+## Development
+
+1. Build via Rust `cargo` the WASM SWC plugin
+
+```sh
+rustup target add wasm32-wasi
+cargo build --target wasm32-wasi --release
+```
+
+This should dump a `next_superjson.wasm` file into the `target/wasm32-wasi/release` directory.
+
+2. Compile the plugin
+
+```sh
+pnpm install
+pnpm prepack
+```
+
+This builds artifacts into the `dist` directory.

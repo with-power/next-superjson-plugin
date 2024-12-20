@@ -2,7 +2,7 @@
 
 import hoistNonReactStatics from "hoist-non-react-statics";
 import type { GetServerSideProps } from "next";
-import React from "react";
+import type { JSX } from "react";
 import SuperJSON from "superjson";
 
 export type SuperJSONProps<P> = P & {
