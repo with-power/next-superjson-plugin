@@ -44,7 +44,7 @@
     "@types/react": "^18 || ^19",
     "husky": "^8.0.2",
     "lint-staged": "^13.0.3",
-    "next": "^13",
+    "next": "^14",
     "prettier": "^2.7.1",
     "superjson": "^2",
     "typescript": "^5.3.3"
